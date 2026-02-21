@@ -37,30 +37,32 @@
 <body>
 
   <div id="radarContainer">
-    <!-- Αφαιρέσαμε το src για να μην γίνεται διπλό αρχικό request -->
-    <img id="radarGif" alt="Radar GIF">
+    <video 
+      id="radarVideo"
+      autoplay 
+      muted 
+      loop 
+      playsinline
+      style="width:100%;height:auto;">
+    </video>
   </div>
 
   <script>
-    const radarImg = document.getElementById("radarGif");
-    const baseUrl = "https://res.cloudinary.com/dyseyexvf/image/upload/radar_izm_animation.mp4";
+    const radarVideo = document.getElementById("radarVideo");
+    const baseUrl = "https://res.cloudinary.com/dyseyexvf/video/upload/radar_izm_animation.mp4";
 
     // === ΑΠΛΗ ΕΚΔΟΧΗ (1 ΜΟΝΟ REQUEST) ===
-    radarImg.src = baseUrl;
+    radarVideo.src = baseUrl;
 
     // =====================================================
     // ΠΑΛΙΑ ΛΟΓΙΚΗ (ΚΡΑΤΗΜΕΝΗ ΓΙΑ ΑΣΦΑΛΕΙΑ)
     // =====================================================
 
     // function updateRadar() {
-    //   radarImg.src = baseUrl + "?v=" + Date.now();
-    //   console.log("Radar updated at: " + new Date().toLocaleTimeString());
+    //   radarVideo.src = baseUrl + "?v=" + Date.now();
     // }
 
-    // // Άμεση εκτέλεση
     // updateRadar();
-
-    // // Επαναλαμβανόμενη εκτέλεση κάθε 150 δευτερόλεπτα
     // setInterval(updateRadar, 150000);
 
   </script>
