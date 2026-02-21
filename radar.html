@@ -37,25 +37,32 @@
 <body>
 
   <div id="radarContainer">
-    <img id="radarGif" src="https://res.cloudinary.com/dnedmhp1h/image/upload/radar_izm_animation.gif" alt="Radar GIF">
+    <!-- Αφαιρέσαμε το src για να μην γίνεται διπλό αρχικό request -->
+    <img id="radarGif" alt="Radar GIF">
   </div>
 
   <script>
     const radarImg = document.getElementById("radarGif");
     const baseUrl = "https://res.cloudinary.com/dnedmhp1h/image/upload/radar_izm_animation.gif";
 
-    // Συνάρτηση που ανανεώνει την εικόνα
-    function updateRadar() {
-      // Προσθέτουμε το timestamp για να παρακάμψουμε την cache
-      radarImg.src = baseUrl + "?v=" + Date.now();
-      console.log("Radar updated at: " + new Date().toLocaleTimeString());
-    }
+    // === ΑΠΛΗ ΕΚΔΟΧΗ (1 ΜΟΝΟ REQUEST) ===
+    radarImg.src = baseUrl;
 
-    // 1. Άμεση εκτέλεση με το που φορτώνει το script
-    updateRadar();
+    // =====================================================
+    // ΠΑΛΙΑ ΛΟΓΙΚΗ (ΚΡΑΤΗΜΕΝΗ ΓΙΑ ΑΣΦΑΛΕΙΑ)
+    // =====================================================
 
-    // 2. Επαναλαμβανόμενη εκτέλεση κάθε 150 δευτερόλεπτα
-    setInterval(updateRadar, 150000); 
+    // function updateRadar() {
+    //   radarImg.src = baseUrl + "?v=" + Date.now();
+    //   console.log("Radar updated at: " + new Date().toLocaleTimeString());
+    // }
+
+    // // Άμεση εκτέλεση
+    // updateRadar();
+
+    // // Επαναλαμβανόμενη εκτέλεση κάθε 150 δευτερόλεπτα
+    // setInterval(updateRadar, 150000);
+
   </script>
 
 </body>
