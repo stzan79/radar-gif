@@ -51,20 +51,8 @@
     const radarVideo = document.getElementById("radarVideo");
     const baseUrl = "https://res.cloudinary.com/dyseyexvf/video/upload/radar_izm_animation.mp4";
 
-    // === ΑΠΛΗ ΕΚΔΟΧΗ (1 ΜΟΝΟ REQUEST) ===
-    radarVideo.src = baseUrl;
-
-    // =====================================================
-    // ΠΑΛΙΑ ΛΟΓΙΚΗ (ΚΡΑΤΗΜΕΝΗ ΓΙΑ ΑΣΦΑΛΕΙΑ)
-    // =====================================================
-
-    // function updateRadar() {
-    //   radarVideo.src = baseUrl + "?v=" + Date.now();
-    // }
-
-    // updateRadar();
-    // setInterval(updateRadar, 150000);
-
+    // === ΑΠΛΗ ΕΚΔΟΧΗ (1 ΜΟΝΟ REQUEST ΜΕ CACHE-BUST) ===
+    radarVideo.src = baseUrl + "?v=" + Date.now();
   </script>
 
 </body>
